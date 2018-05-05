@@ -48,10 +48,20 @@ public class Predict extends javax.swing.JFrame {
 
         Cancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Cancel.setLabel("Cancel\n\n");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
 
         Delete.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Delete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Delete.setLabel("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
 
         Input.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Input.setLabel("Input");
@@ -189,6 +199,21 @@ public class Predict extends javax.swing.JFrame {
     textField1.requestFocus();
     jList_sentence.setSelectedIndex(0);
     }//GEN-LAST:event_InputActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+    if(Add.getSize()>0){
+    int n = jList_sentence.getSelectedIndex();
+    Add.removeElementAt(n);
+    jList_sentence.setSelectedIndex(0);
+    
+        }
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+    Add.clear();
+    textField1.setText("");
+    textField1.requestFocus();
+    }//GEN-LAST:event_CancelActionPerformed
 
 public static void main(String args[]) {
 
