@@ -1,7 +1,18 @@
+import edu.stanford.nlp.trees.TypedDependency;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.event.*;
 import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import java.util.List;
+import edu.stanford.nlp.io.*;
+import edu.stanford.nlp.ling.*;
+import edu.stanford.nlp.pipeline.*;
+import edu.stanford.nlp.trees.*;
+import edu.stanford.nlp.semgraph.*;
+import edu.stanford.nlp.trees.TreeCoreAnnotations.*; 
+import edu.stanford.nlp.util.*;
 
 
 public class Predict extends javax.swing.JFrame {
@@ -191,6 +202,16 @@ public class Predict extends javax.swing.JFrame {
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
+        String testword = jTextArea1.getText();
+        List<String> tokens = Arrays.asList(testword.split(""));
+        generateNgrams getNGramsPositions = new generateNgrams();
+        List<List<String>> genNgram =  generateNgrams.getNGramsPositions(tokens, 1, 2);
+            for (List<String> np : genNgram) {
+            int i = 0;
+            String prop;
+                jTextArea1.append(x[i]+" : " + prop + "\n"); 
+            }
+        
     }//GEN-LAST:event_button4ActionPerformed
 
     private void InputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputActionPerformed
@@ -198,6 +219,8 @@ public class Predict extends javax.swing.JFrame {
     textField1.setText("");
     textField1.requestFocus();
     jList_sentence.setSelectedIndex(0);
+    
+       
     }//GEN-LAST:event_InputActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
